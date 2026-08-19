@@ -1,0 +1,29 @@
+Ты эксперт по безопасности смарт-контрактов.
+
+КОНТРАКТ: VulnerableVault
+
+ПЕРЕМЕННЫЕ СОСТОЯНИЯ:
+  - balances
+  - totalDeposits
+
+ФУНКЦИИ:
+  - deposit() [external]
+  - withdraw(uint256 amount) [external]
+  - getBalance() [external]
+
+ИНВАРИАНТЫ (условия которые никогда не должны нарушаться):
+  - в функции withdraw: EXPRESSION require(bool,string)(balances[msg.sender] >= amount,insufficient balance)
+
+ЗАДАЧА: сгенерируй цепочку транзакций которая попытается нарушить один из инвариантов.
+Ответь СТРОГО в формате JSON, без пояснений, без markdown-блоков.
+
+Формат ответа:
+{
+  "scenario_name": "название сценария атаки",
+  "target_invariant": "какой инвариант атакуем",
+  "transactions": [
+    {"function": "имя функции", "args": [], "sender": "attacker"},
+    ...
+  ],
+  "expected_violation": "объяснение почему это должно сломать инвариант"
+}
