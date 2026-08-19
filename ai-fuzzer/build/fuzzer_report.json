@@ -1,0 +1,35 @@
+{
+  "contract": "BuggyVault",
+  "found_on_iteration": 2,
+  "scenario": {
+    "scenario_name": "DoubleDepositAttack",
+    "target_invariant": "balance invariant",
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [
+          500
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "deposit",
+        "args": [
+          1000
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          1500
+        ],
+        "sender": "attacker"
+      }
+    ],
+    "expected_violation": "The attacker can withdraw more than they have deposited, violating the balance invariant."
+  },
+  "violations": [
+    "totalDeposits (1500 wei) > ETH на контракте (0 wei)"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "contract": "SimpleBridge",
+  "mode": "guided",
+  "found_on_iteration": 1,
+  "scenario": {
+    "scenario_name": "Reentrancy Attack",
+    "target_invariant": "INV-3",
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [
+          "1000000000000"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          "90",
+          "2"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "90",
+          "m1"
+        ],
+        "sender": "attacker"
+      }
+    ],
+    "expected_violation": "The same message_id 'm1' will be successfully withdrawn multiple times, violating INV-3."
+  },
+  "violations": [
+    "INV-3 нарушен: messageId f3bf76992840fcd9bbfaf7a46442b1dcaa7fa35de217a5d9fac6407c99fc8162 был успешно выведен 3 раз(а) вместо 1 — double-spend через reentrancy в withdraw()"
+  ],
+  "steps": [
+    {
+      "tx": {
+        "function": "deposit",
+        "args": [
+          "1000000000000"
+        ],
+        "sender": "attacker"
+      },
+      "status": "success",
+      "violations": []
+    },
+    {
+      "tx": {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          "90",
+          "2"
+        ],
+        "sender": "attacker"
+      },
+      "status": "success",
+      "violations": []
+    },
+    {
+      "tx": {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "90",
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      "status": "success",
+      "violations": [
+        "INV-3 нарушен: messageId f3bf76992840fcd9bbfaf7a46442b1dcaa7fa35de217a5d9fac6407c99fc8162 был успешно выведен 3 раз(а) вместо 1 — double-spend через reentrancy в withdraw()"
+      ]
+    }
+  ],
+  "stage": "guided"
+}

@@ -1,0 +1,1422 @@
+[
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          "1000",
+          "10"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "1000",
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "800",
+          "m1"
+        ],
+        "sender": "attacker_contract"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              "1000",
+              "10"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              "1000",
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              "800",
+              "m1"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          1000,
+          5
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          800,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          2000,
+          3
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1600,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1200,
+          "m2"
+        ],
+        "sender": "attacker"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              1000,
+              5
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              800,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              2000,
+              3
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1600,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1200,
+              "m2"
+            ],
+            "sender": "attacker"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          1000,
+          5
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          800,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          2000,
+          3
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1600,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m3",
+          3000,
+          2
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          2400,
+          "m2"
+        ],
+        "sender": "attacker"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              1000,
+              5
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              800,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              2000,
+              3
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1600,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m3",
+              3000,
+              2
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              2400,
+              "m2"
+            ],
+            "sender": "attacker"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          1000,
+          5
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          800,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          2000,
+          3
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1600,
+          "m1"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m3",
+          3000,
+          2
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          2400,
+          "m2"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m4",
+          4000,
+          1
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          3600,
+          "m3"
+        ],
+        "sender": "attacker_contract"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              1000,
+              5
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              800,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              2000,
+              3
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1600,
+              "m1"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m3",
+              3000,
+              2
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              2400,
+              "m2"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m4",
+              4000,
+              1
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              3600,
+              "m3"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          1000,
+          5
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          800,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          2000,
+          3
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1600,
+          "m1"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m3",
+          3000,
+          2
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          2400,
+          "m2"
+        ],
+        "sender": "attacker_contract"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              1000,
+              5
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              800,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              2000,
+              3
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1600,
+              "m1"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m3",
+              3000,
+              2
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              2400,
+              "m2"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          1000,
+          1
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          800,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          2000,
+          1
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1600,
+          "m2"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m3",
+          3000,
+          1
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          2400,
+          "m3"
+        ],
+        "sender": "attacker"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              1000,
+              1
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              800,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              2000,
+              1
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1600,
+              "m2"
+            ],
+            "sender": "attacker"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m3",
+              3000,
+              1
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              2400,
+              "m3"
+            ],
+            "sender": "attacker"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          1000,
+          10
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          800,
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          2000,
+          5
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          1600,
+          "m1"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m3",
+          3000,
+          2
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          2400,
+          "m2"
+        ],
+        "sender": "attacker_contract"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              1000,
+              10
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              800,
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              2000,
+              5
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              1600,
+              "m1"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m3",
+              3000,
+              2
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              2400,
+              "m2"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  },
+  {
+    "transactions": [
+      {
+        "function": "deposit",
+        "args": [],
+        "sender": "attacker"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m1",
+          "1000",
+          "2"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "500",
+          "m1"
+        ],
+        "sender": "attacker"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m2",
+          "2000",
+          "3"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "1200",
+          "m1"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "receive",
+        "args": [],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "setAttackParams",
+        "args": [
+          "m3",
+          "3000",
+          "2"
+        ],
+        "sender": "attacker_contract"
+      },
+      {
+        "function": "withdraw",
+        "args": [
+          "attacker_contract",
+          "2400",
+          "m2"
+        ],
+        "sender": "attacker_contract"
+      }
+    ],
+    "result": {
+      "steps": [
+        {
+          "tx": {
+            "function": "deposit",
+            "args": [],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m1",
+              "1000",
+              "2"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              "500",
+              "m1"
+            ],
+            "sender": "attacker"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m2",
+              "2000",
+              "3"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              "1200",
+              "m1"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: already processed', '0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011616c72656164792070726f636573736564000000000000000000000000000000')",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "receive",
+            "args": [],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: неизвестная функция receive",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "setAttackParams",
+            "args": [
+              "m3",
+              "3000",
+              "2"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "success",
+          "violations": []
+        },
+        {
+          "tx": {
+            "function": "withdraw",
+            "args": [
+              "attacker_contract",
+              "2400",
+              "m2"
+            ],
+            "sender": "attacker_contract"
+          },
+          "status": "revert: ('execution reverted: insufficient bridge liquidity', '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001d696e73756666696369656e7420627269646765206c6971756964697479000000')",
+          "violations": []
+        }
+      ],
+      "violations": []
+    }
+  }
+]

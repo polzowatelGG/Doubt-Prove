@@ -1,0 +1,24 @@
+{
+  "scenario_name": "Reentrancy Attack",
+  "target_invariant": "insufficient balance",
+  "transactions": [
+    {
+      "function": "deposit",
+      "args": [],
+      "sender": "attacker"
+    },
+    {
+      "function": "withdraw",
+      "args": [
+        100
+      ],
+      "sender": "attacker"
+    },
+    {
+      "function": "getBalance",
+      "args": [],
+      "sender": "vulnerable-vault"
+    }
+  ],
+  "expected_violation": "The attacker's initial deposit will set balances[attacker] to a non-zero value. Then, the attacker calls withdraw(100) and gets the balance, which is still zero (since no actual withdrawal has occurred yet). The getBalance function returns this zero balance. Meanwhile, when the vulnerable-vault contract calls withdraw again with the same amount, it will not check if the new balance is sufficient because it trusts the returned value from getBalance. This allows the attacker to repeatedly call getBalance and then withdraw without actually spending any funds."
+}

@@ -1,0 +1,95 @@
+{
+  "n_runs": 10,
+  "found_without_hint": 4,
+  "found_without_hint_pct": 40.0,
+  "wilson_95ci_without_hint_pct": [
+    16.8,
+    68.7
+  ],
+  "found_with_hint_only": 6,
+  "found_with_hint_only_pct": 60.0,
+  "not_found_even_with_hint": 0,
+  "not_found_pct": 0.0,
+  "infra_errors": 0,
+  "found_total_pct": 100.0,
+  "wilson_95ci_total_pct": [
+    72.2,
+    100.0
+  ],
+  "median_iterations_blind": 3.5,
+  "median_iterations_guided": 1.0,
+  "median_seconds_per_run": 258.05,
+  "total_seconds": 2208.5,
+  "runs": [
+    {
+      "run": 1,
+      "stage": "guided",
+      "found_on_iteration": 1,
+      "elapsed_seconds": 483.3,
+      "error": null
+    },
+    {
+      "run": 2,
+      "stage": "guided",
+      "found_on_iteration": 3,
+      "elapsed_seconds": 319.4,
+      "error": null
+    },
+    {
+      "run": 3,
+      "stage": "blind",
+      "found_on_iteration": 4,
+      "elapsed_seconds": 85.3,
+      "error": null
+    },
+    {
+      "run": 4,
+      "stage": "blind",
+      "found_on_iteration": 2,
+      "elapsed_seconds": 41.9,
+      "error": null
+    },
+    {
+      "run": 5,
+      "stage": "blind",
+      "found_on_iteration": 7,
+      "elapsed_seconds": 142.8,
+      "error": null
+    },
+    {
+      "run": 6,
+      "stage": "blind",
+      "found_on_iteration": 3,
+      "elapsed_seconds": 60.4,
+      "error": null
+    },
+    {
+      "run": 7,
+      "stage": "guided",
+      "found_on_iteration": 1,
+      "elapsed_seconds": 285.4,
+      "error": null
+    },
+    {
+      "run": 8,
+      "stage": "guided",
+      "found_on_iteration": 3,
+      "elapsed_seconds": 258.3,
+      "error": null
+    },
+    {
+      "run": 9,
+      "stage": "guided",
+      "found_on_iteration": 1,
+      "elapsed_seconds": 257.8,
+      "error": null
+    },
+    {
+      "run": 10,
+      "stage": "guided",
+      "found_on_iteration": 1,
+      "elapsed_seconds": 273.9,
+      "error": null
+    }
+  ]
+}

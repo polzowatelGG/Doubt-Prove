@@ -1,0 +1,35 @@
+{
+  "contract_name": "VulnerableVault",
+  "state_variables": [
+    "balances",
+    "totalDeposits"
+  ],
+  "functions": [
+    {
+      "name": "deposit",
+      "inputs": [],
+      "visibility": "external",
+      "modifiers": []
+    },
+    {
+      "name": "withdraw",
+      "inputs": [
+        "uint256 amount"
+      ],
+      "visibility": "external",
+      "modifiers": []
+    },
+    {
+      "name": "getBalance",
+      "inputs": [],
+      "visibility": "external",
+      "modifiers": []
+    }
+  ],
+  "invariants": [
+    {
+      "function": "withdraw",
+      "condition": "EXPRESSION require(bool,string)(balances[msg.sender] >= amount,insufficient balance)"
+    }
+  ]
+}
