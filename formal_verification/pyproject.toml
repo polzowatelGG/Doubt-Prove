@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-cvl-pipeline"
+version = "0.1.0"
+description = "LLM-assisted CVL generation and Certora feedback loop"
+requires-python = ">=3.11"
+dependencies = [
+  "requests>=2.32,<3",
+  "pydantic>=2.7,<3"
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
